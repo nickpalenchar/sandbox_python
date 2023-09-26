@@ -2,12 +2,32 @@ import curses
 from time import sleep
 
 WALL = "#"
+SNAKE = "▒"
+
+class Snake:
+    """
+    The actuall snake character
+    """
+    def __init__(self, starty, startx)
+        self.length = 3
+        self.y = starty
+        self.x = startx
+        self.parts = [(starty, startx), (starty, startx-1), (starty, startx-2)]
+
+    def get_points():
+        return
+
+
 
 class Screen:
     def __init__(self, stdscr, w, h):
         self._stdscr = stdscr
         self.w = w
         self.h = h
+
+        snake_y = self.h // 2
+        snake_x = self.w // 2
+
 
     def refresh(self, points, strict=False):
 
@@ -19,8 +39,6 @@ class Screen:
         self._stdscr.refresh()
 
     def get_border_points(self):
-        
-        #return  [(40, y, WALL) for y in range(self.h)] #+ [(y, self.w-1, WALL) for y in range(self.h)]
         return [(0, x, WALL) for x in range(self.w)] + [(y, 0, WALL) for y in range(self.h)] + [(y, self.w-1, WALL) for y in range(self.h)] + [(self.h-1, x, WALL) for x in range(self.w)]
 
 
